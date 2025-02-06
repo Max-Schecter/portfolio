@@ -1,0 +1,348 @@
+/***************************************************
+ GLOBAL RESET & BASE STYLES
+****************************************************/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* Slightly darker background for better contrast against white cards */
+  background: #e7e9ee;
+}
+
+body {
+  /* Darken body text for readability */
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/***************************************************
+ HELPER CLASSES FOR NEUMORPHIC SHADOWS
+****************************************************/
+.neu-inset {
+  box-shadow:
+    inset 6px 6px 12px rgba(0, 0, 0, 0.07),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.7);
+}
+
+.neu-raised {
+  box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.07),
+    -6px -6px 12px rgba(255, 255, 255, 0.7);
+}
+
+.neu-flat {
+  box-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.08),
+    -2px -2px 4px rgba(255, 255, 255, 0.9);
+}
+
+/***************************************************
+ WRAPPERS / LAYOUT UTILITIES
+****************************************************/
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/***************************************************
+ HEADER
+****************************************************/
+header {
+  text-align: center;
+  background: #f0f0f3;
+  padding: 3rem 1rem;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  box-shadow:
+    8px 8px 16px rgba(0, 0, 0, 0.06),
+    -8px -8px 16px rgba(255, 255, 255, 0.7);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+header h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #666;
+}
+
+header p {
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: #666;
+}
+
+header p a {
+  color: #8c7eff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+header p a:hover {
+  text-decoration: underline;
+}
+
+/***************************************************
+ NAVIGATION
+****************************************************/
+nav {
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #e8e8ec;
+  color: #333;
+}
+
+/***************************************************
+ SECTIONS
+****************************************************/
+section {
+  width: 100%;
+  padding: 0rem 3rem;
+  margin: 0 auto 3rem;
+  border-radius: 1rem;
+  /* Lighter background so cards stand out more */
+  background: #e7e9ee;
+}
+
+/***************************************************
+ PROJECTS SECTION
+****************************************************/
+#projects {
+  /* Remove heavy inset shadow to simplify & improve contrast */
+  box-shadow: none;
+
+  /* Single-column layout for each .project item */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem; /* Spacing between project cards */
+}
+
+#projects h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #444;
+}
+
+/* 
+   If you no longer want the container to define its own grid,
+   comment this out or remove it completely:
+*/
+/*
+#projects .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 4rem;
+}
+*/
+
+/* PROJECT CARDS */
+.project {
+  /* White cards for strong contrast against #e7e9ee background */
+  background: #fff;
+
+  /* Responsive padding: scales between 1rem and 2rem based on viewport width */
+  padding: clamp(1rem, 4vw, 2rem);
+
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  text-align: left;
+
+  /* Subtle box shadow for a more “card-like” look */
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add hover effect to give a bit of interactivity */
+.project:hover {
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.project h3 {
+  font-size: 1.5rem;
+  color: #5dabe2;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.project-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto 1rem auto;
+  display: block;
+  border-radius: 0.75rem;
+  /* Keep a subtle inset effect if you like the “neu” style */
+  box-shadow:
+    inset 2px 2px 4px rgba(0, 0, 0, 0.05),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.project p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  margin: 1rem 0;
+}
+
+/***************************************************
+ 2×2 GRID INSIDE A SINGLE PROJECT
+****************************************************/
+.project-grid {
+  /* Two columns, two rows for your images + text */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* 
+  A description block in one of the grid cells 
+  so heading + text or bullet points line up nicely 
+*/
+.project-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.project-description h4 {
+  margin-bottom: 0.75rem;
+  color: #444;
+}
+
+.project-description ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+/***************************************************
+ CONTACT SECTION
+****************************************************/
+#contact {
+  /* Slightly lighter background than the global #e7e9ee */
+  background: #f2f2f5;
+}
+
+#contact h2 {
+  text-align: center;
+  font-size: 1.75rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+#contact p {
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+#contact p a {
+  color: #418fb3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#contact p a:hover {
+  text-decoration: underline;
+}
+
+/***************************************************
+ FOOTER
+****************************************************/
+footer {
+  background: #f0f0f3;
+  color: #666;
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1rem;
+  border-radius: 1rem 1rem 0 0;
+  box-shadow:
+    inset 2px 2px 4px rgba(0, 0, 0, 0.05),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+  margin-top: 3rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+/***************************************************
+ MEDIA QUERIES
+****************************************************/
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 1.75rem;
+  }
+
+  header h2 {
+    font-size: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .project {
+    /* Slightly smaller padding on very narrow screens */
+    padding: clamp(1rem, 6vw, 1.5rem);
+  }
+
+  /* Let the .project-grid stack on small screens */
+  .project-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+  }
+}
