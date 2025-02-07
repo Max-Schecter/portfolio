@@ -1,32 +1,43 @@
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Portfolio website loaded successfully!");
+const state = {};
+const carouselList = document.querySelector('.carousel__list');
+const carouselItems = document.querySelectorAll('.carousel__item');
+const elems = Array.from(carouselItems);
 
-  // Smooth scrolling for navigation links
-  const links = document.querySelectorAll("nav ul li a");
-  links.forEach(link => {
-      link.addEventListener("click", function (event) {
-          event.preventDefault();
-          const targetId = this.getAttribute("href").substring(1);
-          const targetElement = document.getElementById(targetId);
-          
-          if (targetElement) {
-              window.scrollTo({
-                  top: targetElement.offsetTop - 50,
-                  behavior: "smooth"
-              });
-          }
-      });
-  });
+carouselList.addEventListener('click', function (event) {
+  var newActive = event.target;
+  var isItem = newActive.closest('.carousel__item');
 
-  // Simple form validation (if a contact form exists)
-  const contactForm = document.querySelector("#contact-form");
-  if (contactForm) {
-      contactForm.addEventListener("submit", function (event) {
-          const emailInput = document.querySelector("#email");
-          if (emailInput.value.trim() === "") {
-              event.preventDefault();
-              alert("Please enter a valid email address.");
-          }
-      });
-  }
+  if (!isItem || newActive.classList.contains('carousel__item_active')) {
+    return;
+  };
+  
+  update(newActive);
 });
+
+const update = function(newActive) {
+  const newActivePos = newActive.dataset.pos;
+
+  const current = elems.find((elem) => elem.dataset.pos == 0);
+  const prev = elems.find((elem) => elem.dataset.pos == -1);
+  const next = elems.find((elem) => elem.dataset.pos == 1);
+  const first = elems.find((elem) => elem.dataset.pos == -2);
+  const last = elems.find((elem) => elem.dataset.pos == 2);
+  
+  current.classList.remove('carousel__item_active');
+  
+  [current, prev, next, first, last].forEach(item => {
+    var itemPos = item.dataset.pos;
+
+    item.dataset.pos = getPos(itemPos, newActivePos)
+  });
+};
+
+const getPos = function (current, active) {
+  const diff = current - active;
+
+  if (Math.abs(current - active) > 2) {
+    return -current
+  }
+
+  return diff;
+}
