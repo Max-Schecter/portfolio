@@ -227,6 +227,15 @@ section {
   margin: 1rem 0;
 }
 
+
+.project h4 {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  margin: 1rem 0;
+  text-align: left;
+}
+
 /***************************************************
  2×2 GRID INSIDE A SINGLE PROJECT
 ****************************************************/
@@ -338,7 +347,7 @@ footer p {
 
   .project {
     /* Slightly smaller padding on very narrow screens */
-    padding: clamp(1rem, 6vw, 1.5rem);
+    padding: clamp(1px, 2vw, 20px);
   }
 
   /* Let the .project-grid stack on small screens */
@@ -360,18 +369,18 @@ body {
 
 .slider-wrapper {
 	position: relative;
+  width: 80%;  /* Adjust width to allow space for the next item */
+  overflow: hidden;
+  position: relative;
 }
 
 .slider {
-	display: flex;
-	aspect-ratio: 16 / 9;
-	overflow-x: auto;
-	scroll-snap-type: x mandatory;
-	scroll-behavior: auto;
-	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-	border-radius: 0.5rem;
-	-ms-overflow-style: none; /* Hide scrollbar IE and Edge */
-	scrollbar-width: none; /* Hide scrollbar Firefox */
+  display: flex;
+  gap: 10px; /* Space between items */
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -407,4 +416,59 @@ body {
 
 .slider-nav a:hover {
 	opacity: 1;
+}
+
+/* General Container */
+.carousel-container {
+  width: 100%;
+  overflow: hidden; /* Hide overflowing content */
+  padding: 10px;
+}
+
+/* Items in a Row by Default */
+.carousel {
+  background-color:#ffff;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  overflow-x: auto; /* Enables horizontal scrolling when necessary */
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0%;
+  scrollbar-width: none; /* Hides scrollbar on Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Hides scrollbar on WebKit browsers */
+}
+
+/* Each Item */
+.item {
+  flex: 1 1 auto; /* Allows dynamic resizing */
+  min-width: 400; /* Minimum size per item */
+  max-width: 900px;
+  height: flex;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  padding: 0px 5px;
+  scroll-snap-align: center;
+}
+
+/* mobile version */
+@media (max-width: 600px) {
+  .carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Enable scrolling for carousel */
+    scroll-snap-type: x mandatory;
+  }
+
+  .item {
+    padding: 0px 0px;
+    flex: 0 0 99%; /* Each item takes 80% of screen width */
+  }
 }
