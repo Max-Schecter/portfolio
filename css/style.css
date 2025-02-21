@@ -45,6 +45,8 @@ header h1 {
   font-size: 2.5rem; /* Adjust as needed */
   font-weight: 900; /* 'black' corresponds to 900 */
   background: linear-gradient(to top left, #5433FF, #20BDFF, #A5FECB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   z-index: 9999;
 }
 
