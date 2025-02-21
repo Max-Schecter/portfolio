@@ -1,474 +1,213 @@
-/***************************************************
- GLOBAL RESET & BASE STYLES
-****************************************************/
-*,
-*::before,
-*::after {
+/* Reset default styles for consistency */
+* {
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 100%;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  /* Slightly darker background for better contrast against white cards */
-  background: #e7e9ee;
-}
-
 body {
-  /* Darken body text for readability */
-  color: #333;
+  padding-top: 400px;  /* Add this to offset the fixed header */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Mimics San Francisco */
   line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
+  color: #333;
+  background-color: #000000; /* Light gray background, similar to Apple's product pages */
+  width:100%;
+  z-index: 2000;
 }
 
-/***************************************************
- HELPER CLASSES FOR NEUMORPHIC SHADOWS
-****************************************************/
-.neu-inset {
-  box-shadow:
-    inset 6px 6px 12px rgba(0, 0, 0, 0.07),
-    inset -6px -6px 12px rgba(255, 255, 255, 0.7);
-}
-
-.neu-raised {
-  box-shadow:
-    6px 6px 12px rgba(0, 0, 0, 0.07),
-    -6px -6px 12px rgba(255, 255, 255, 0.7);
-}
-
-.neu-flat {
-  box-shadow:
-    2px 2px 4px rgba(0, 0, 0, 0.08),
-    -2px -2px 4px rgba(255, 255, 255, 0.9);
-}
-
-/***************************************************
- WRAPPERS / LAYOUT UTILITIES
-****************************************************/
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 10px;
-}
-
-/***************************************************
- HEADER
-****************************************************/
+/* Header styling */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px; /* Full-screen video */
+  background-color: #fff;  /* Choose one color */
+  padding: 0px 0px;
   text-align: center;
-  background: #f0f0f3;
-  padding: 3rem 1rem;
-  margin-bottom: 3rem;
-  border-radius: 1rem;
-  box-shadow:
-    8px 8px 16px rgba(0, 0, 0, 0.06),
-    -8px -8px 16px rgba(255, 255, 255, 0.7);
+  z-index: -1;
+}
+
+header video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the full area */
+  z-index: 1;
 }
 
 header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #444;
+  position: absolute;
+  top: 23%; /* Adjust this value as needed */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem; /* Adjust as needed */
+  font-weight: 900; /* 'black' corresponds to 900 */
+  background: linear-gradient(to top left, #5433FF, #20BDFF, #A5FECB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 9999;
 }
 
 header h2 {
-  font-size: 1.25rem;
+  position: absolute;
+  font-size: 1.2rem;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -20%); /* Centers text perfectly */
   font-weight: 400;
-  color: #666;
+  color: #6e6e73; /* Apple's gray text color */
+  margin-top: 8px;
+  z-index: 9999;
 }
 
 header p {
-  font-size: 1rem;
-  margin-top: 1rem;
-  color: #666;
+  font-size: 0.9rem;
+  color: #6e6e73;
+  margin-top: 12px;
 }
 
-header p a {
-  color: #8c7eff;
+header a {
+  color: #0071e3; /* Apple's link blue */
   text-decoration: none;
-  font-weight: 500;
 }
 
-header p a:hover {
+header a:hover {
   text-decoration: underline;
 }
 
-/***************************************************
- NAVIGATION
-****************************************************/
-nav {
-  margin-top: 1.5rem;
-  display: inline-block;
+/* Projects section */
+
+.background {
+  border-radius: 12px 12px 0px 0px;
+  position: relative;
+  background-color: #f5f5f7;
+  padding: 20px 0px;
 }
 
-nav ul {
-  list-style-type: none;
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-}
-
-nav ul li {
+#project-section {
+  box-shadow: 0 -10px 30px rgba(255, 255, 255, 0.3); /* Soft white glow */
+  padding: 0px 0px;
+  width: 100%;
   position: relative;
 }
 
-nav ul li a {
-  color: #555;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s;
-}
-
-nav ul li a:hover {
-  background-color: #e8e8ec;
-  color: #333;
-}
-
-/***************************************************
- SECTIONS
-****************************************************/
-section {
-  width: 100%;
-  padding: 0rem 3rem;
-  margin: 0 auto 3rem;
-  border-radius: 1rem;
-  /* Lighter background so cards stand out more */
-  background: #e7e9ee;
-}
-
-/***************************************************
- PROJECTS SECTION
-****************************************************/
-#projects {
-  /* Remove heavy inset shadow to simplify & improve contrast */
-  box-shadow: none;
-
-  /* Single-column layout for each .project item */
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem; /* Spacing between project cards */
-}
-
-#projects h2 {
-  text-align: center;
+#project-section h2 {
   font-size: 2rem;
-  margin-bottom: 3rem;
-  color: #444;
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+  margin-bottom: 12px;
 }
 
-
-/* 
-   If you no longer want the container to define its own grid,
-   comment this out or remove it completely:
-*/
-/*
-#projects .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 4rem;
-}
-*/
-
-/* PROJECT CARDS */
 .project {
-  /* White cards for strong contrast against #e7e9ee background */
-  background: #fff;
-
-  /* Responsive padding: scales between 1rem and 2rem based on viewport width */
-  padding: clamp(1rem, 4vw, 2rem);
-
-  border-radius: 1rem;
-  transition: all 0.3s ease;
-  text-align: left;
-
-  /* Subtle box shadow for a more “card-like” look */
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
 
-/* Add hover effect to give a bit of interactivity */
 .project:hover {
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px); /* Lift effect on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .project h3 {
-  font-size: 1.5rem;
-  color: #5dabe2;
-  margin-bottom: 1rem;
   text-align: center;
-}
-
-.project-image {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  margin: 0 auto 1rem auto;
-  display: block;
-  border-radius: 0.75rem;
-  /* Keep a subtle inset effect if you like the “neu” style */
-  box-shadow:
-    inset 2px 2px 4px rgba(0, 0, 0, 0.05),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
-}
-
-.project p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #555;
-  margin: 1rem 0;
-}
-
-
-.project h4 {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #555;
-  margin: 1rem 0;
-  text-align: left;
-}
-
-/***************************************************
- 2×2 GRID INSIDE A SINGLE PROJECT
-****************************************************/
-.project-grid {
-  /* Two columns, two rows for your images + text */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.project-grid img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-/* 
-  A description block in one of the grid cells 
-  so heading + text or bullet points line up nicely 
-*/
-.project-description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 1rem;
-}
-
-.project-description h4 {
-  margin-bottom: 0.75rem;
-  color: #444;
-}
-
-.project-description ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-}
-
-/***************************************************
- CONTACT SECTION
-****************************************************/
-#contact {
-  /* Slightly lighter background than the global #e7e9ee */
-  background: #f2f2f5;
-}
-
-#contact h2 {
-  text-align: center;
-  font-size: 1.75rem;
-  color: #444;
-  margin-bottom: 2rem;
-}
-
-#contact p {
-  font-size: 1.1rem;
-  color: #555;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-#contact p a {
-  color: #418fb3;
-  text-decoration: none;
+  font-size: 1.3rem;
   font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+  color: #0071e3; /* Blue for project titles */
 }
 
-#contact p a:hover {
-  text-decoration: underline;
-}
-
-/***************************************************
- FOOTER
-****************************************************/
-footer {
-  background: #f0f0f3;
-  color: #666;
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 1rem;
-  border-radius: 1rem 1rem 0 0;
-  box-shadow:
-    inset 2px 2px 4px rgba(0, 0, 0, 0.05),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
-  margin-top: 3rem;
-}
-
-footer p {
-  margin: 0;
-}
-
-/***************************************************
- MEDIA QUERIES
-****************************************************/
-@media (max-width: 576px) {
-  header h1 {
-    font-size: 1.75rem;
-  }
-
-  header h2 {
-    font-size: 1rem;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .project {
-    /* Slightly smaller padding on very narrow screens */
-    padding: clamp(1px, 2vw, 20px);
-  }
-
-  /* Let the .project-grid stack on small screens */
-  .project-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-  }
-}
-
-/* Image Caurosel */
-
-body {
-	background-color: #f8fafc;
-}
-
-.container {
-	padding: 0rem;
-}
-
-.slider-wrapper {
-	position: relative;
-  width: 80%;  /* Adjust width to allow space for the next item */
-  overflow: hidden;
-  position: relative;
-}
-
-.slider {
-  display: flex;
-  gap: 10px; /* Space between items */
-  scroll-snap-type: x mandatory;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.slider::-webkit-scrollbar {
-	display: none;
-}
-
-.slider img {
-  width: 100%;
-  height: auto;
-	scroll-snap-align: center;
-	object-fit: cover;
-}
-
-.slider-nav {
-	display: flex;
-	column-gap: 1rem;
-	position: absolute;
-	bottom: 1.25rem;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 1;
-}
-
-.slider-nav a {
-	width: 0.5rem;
-	height: 0.5rem;
-	border-radius: 50%;
-	background-color: #fff;
-	opacity: 0.75;
-	transition: opacity ease 250ms;
-}
-
-.slider-nav a:hover {
-	opacity: 1;
-}
-
-/* General Container */
-.carousel-container {
-  width: 100%;
-  overflow: hidden; /* Hide overflowing content */
-  padding: 10px;
-}
-
-/* Items in a Row by Default */
-.carousel {
-  background-color:#ffff;
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
-  overflow-x: auto; /* Enables horizontal scrolling when necessary */
-  scroll-snap-type: x mandatory;
-  padding-bottom: 0%;
-  scrollbar-width: none; /* Hides scrollbar on Firefox */
-}
-
-.carousel::-webkit-scrollbar {
-  display: none; /* Hides scrollbar on WebKit browsers */
-}
-
-/* Each Item */
 .item {
-  flex: 1 1 auto; /* Allows dynamic resizing */
-  min-width: 400; /* Minimum size per item */
-  max-width: 900px;
-  height: flex;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  border-radius: 8px;
-  padding: 0px 5px;
+  flex: 0 0 auto;
+  width: 300px; /* Fixed width for each item */
+  background-color: #f5f5f7;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
   scroll-snap-align: center;
 }
 
-/* mobile version */
-@media (max-width: 600px) {
-  .carousel {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto; /* Enable scrolling for carousel */
-    scroll-snap-type: x mandatory;
-  }
-
-  .item {
-    padding: 0px 0px;
-    flex: 0 0 99%; /* Each item takes 80% of screen width */
-  }
+.item img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
 }
+
+.item h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  margin: 15px 0 10px;
+}
+
+.item p {
+  font-size: 0.9rem;
+  color: #6e6e73;
+  line-height: 1.4;
+}
+
+/* Contact section */
+#contact {
+  padding: x 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+#contact h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+#contact p {
+  font-size: 0.9rem;
+  color: #6e6e73;
+  margin: 10px 0;
+}
+
+#contact a {
+  color: #0071e3;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #f5f5f7;
+  text-align: center;
+  padding: 20px;
+  color: #6e6e73;
+  font-size: 0.8rem;
+  border-top: 1px solid #e5e5ea; /* Light border for separation */
+}
+
+  scroll-snap-type: x mandatory;
+.carousel {
+  background-color:#ffff;
+  gap: 10px;
+  padding-bottom: 0%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;  /* Enable scrolling */
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Hides scrollbar on Firefox */
+
+}
+
