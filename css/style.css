@@ -30,10 +30,10 @@ header {
 }
 
 header video {
-  margin-top: 30px; /* Moves video down */
+  margin-top: 70px; /* Moves video down */
   z-index: 1;
-  width: clamp(30rem, 80vw, 90%); /* Width scales dynamically */
-  object-fit: cover; /* Ensures the video fills its container without distortion */
+  width: clamp(30rem, 90vw, 100%); /* Width scales dynamically */
+  object-fit: contain; /* Ensures the video fills its container without distortion */
 }
 
 header h1 {
