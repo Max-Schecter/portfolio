@@ -296,10 +296,20 @@ footer {
   transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
-.item li:hover:not(.active) {
-  background-color: #9fddff; /* Light gray hover effect */
-}
-
 .item li.active {
   background-color: #d6d6d65f; /* Keeps selected item "pressed" */
 }
+
+ul {
+  list-style-type: disc; /* Ensures bullets are shown */
+}
+
+.no-image::marker {
+  color: rgb(217, 217, 217); /* Change bullet color */
+}
+
+.no-image {
+  cursor: default; /* Changes cursor to default (not clickable) */
+  pointer-events: none; /* Prevents hover and click events */
+}
+

@@ -21,15 +21,18 @@ document.addEventListener("DOMContentLoaded", function () {
     
       // Add event listeners for hover (desktop) and click (mobile)
       listItems.forEach((listItem, index) => {
-          listItem.addEventListener("mouseenter", function () {
-              showImage(index);
-          });
-
-          listItem.addEventListener("click", function () {
-              showImage(index);
-          });
-      });
-
+        listItem.addEventListener("mouseenter", function () {
+            if (!listItem.classList.contains("no-image")) {
+                showImage(index);
+            }
+        });
+    
+        listItem.addEventListener("click", function () {
+            if (!listItem.classList.contains("no-image")) {
+                showImage(index);
+            }
+        });
+    });
       // Ensure the first item is "selected" properly on page load
       if (listItems.length > 0) {
           showImage(0); // Set the first image as visible and apply styles

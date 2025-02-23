@@ -18,20 +18,82 @@
 <div class="wrapper">
     <section id="project-section">
         <h2>Projects</h2>
+        
         <div class="project">
-            <h3>PROVE - Headlights and Tail Lights</h3>
+            <h3>PROVE - Charging Port</h3>
             <section class="carousel">
-
-                <div class="item">
+                
+                <div class="item"> 
                     <div class="viewer">
-                        <img class = "image" id="1" src="images/Screenshot 2025-02-06 at 3.01.59 PM.png" alt="Preview" />
-                        <img class = "image" id="2" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png" alt="Preview" />
-                        <img class = "image" id="3" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png" alt="Preview" />
+                        <img class = "image" id="1" src="images/Charging Port/Geometry.png" alt="Preview" />
+                        <img class = "image" id="2" src="images/Charging Port/Geometry.png" alt="Preview" />
+                        <img class = "image" id="3" src="images/Charging Port/Geometry.png" alt="Preview" />
                     </div>    
                     <h4>Design Requirements:</h4>
                     <ul id="design-list">
-                        <li image="1">Need to interface with the orgainc geometry of the vehicle.</li>
-                        <li image="2">The headlight module must be able to house a five inch deep projector headlight and fit within tight geometry constraints.</li>
+                        <li image="1">Needed to seamlessly mate with the vehicle’s organic geometry.</li>
+                        <li class="no-image" image="2">Must house a J1772 charging plug.</li>
+                        <li class="no-image" image="3">Must be easy to manufacture.</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="viewer">
+                        <img class = "image" id="1" src="images/Charging Port/Rear Location.png" alt="Preview" />
+                        <img class = "image" id="2" src="images/Charging Port/FactoryPort.png" alt="Preview" />
+                        <img class = "image" id="3" src="images/Charging Port/CAD.png" alt="Preview" />
+                    </div>    
+                    <h4>Method:</h4>
+                    <ul id="design-list">
+                        <li image="1">I selected the back left of the vehicle due to access, proximity to high-voltage components, and available space.</li>
+                        <li image="2">After looking at pre exisitng designs, I chose a hinged design and decided to make a bespoke part instead of buying becasue of the unique vehicle geometry.</li>
+                        <li image="3">I then modeled the port in Siemens NX, designing the part with the intention to 3d print it.</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="viewer">
+                        <img class = "image" id="1" src="images/Charging Port/Prototype.png" alt="Preview" />
+                        <img class = "image" id="2" src="images/Charging Port/Prototype.png" alt="Preview" />
+                        <img class = "image" id="3" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png" alt="Preview" />
+                    </div>    
+                    <h4>Results:</h4>
+                    <ul id="design-list">
+                        <li image="1">I 3d printed a number of prototypes and confirmed manufacturability and functionality.</li>
+                        <li class="no-image" image="2">I'm waiting on the completion of the vehicle Aeroshell to integrate it and perform final tests.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="project">
+            <h3>PROVE - Headlights and Tail Lights</h3>
+            <section class="carousel">
+                
+                <div class="item"> 
+                    <div class="viewer">
+                        <img class = "image" id="1" src="images/Headlights and Tail Lights/Render.png" alt="Preview" />
+                        <img class = "image" id="2" src="images/Headlights and Tail Lights/Interference.png" alt="Preview" />
+                        <img class = "image" id="3" src="images/Headlights and Tail Lights/Rear.png" alt="Preview" />
+                    </div>    
+                    <h4>Design Requirements:</h4>
+                    <ul id="design-list">
+                        <li image="1">Must be astheticlly apprealing.</li>
+                        <li image="2">The head light design must be able to house a five inch deep projector headlight and fit within tight geometry constraints.</li>
+                        <li image="3">The tail light bar must act both as a structural member in addition to its visual function.</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="viewer">
+                        <img class = "image" id="1" src="images/Headlights and Tail Lights/Sketch.png" alt="Preview" />
+                        <img class = "image" id="2" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png" alt="Preview" />
+                        <img class = "image" id="3" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png" alt="Preview" />
+                    </div>    
+                    <h4>Method:</h4>
+                    <ul id="design-list">
+                        <li image="1">I began by sketching out initial headlights design on the profile of the vehicle.</li>
+                        <li image="2">I then modeled the .</li>
                         <li image="3">The tail light bar must act both as a structural member in addition to its visual function.</li>
                     </ul>
                 </div>
@@ -42,30 +104,12 @@
                         <img class = "image" id="2" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png" alt="Preview" />
                         <img class = "image" id="3" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png" alt="Preview" />
                     </div>    
-                    <h4>Design Requirements:</h4>
+                    <h4>Results:</h4>
                     <ul id="design-list">
                         <li image="1">Need to interface with the orgainc geometry of the vehicle.</li>
                         <li image="2">The headlight module must be able to house a five inch deep projector headlight and fit within tight geometry constraints.</li>
                         <li image="3">The tail light bar must act both as a structural member in addition to its visual function.</li>
                     </ul>
-                </div>
-
-                <div class="item">
-                      <img src="images/Screenshot 2025-02-06 at 3.01.11 PM.png" alt="Charge port housing design requirements for Cal Poly PROVE electric vehicle">
-                    <h4>Method:</h4>
-                <ul
-                    <li>I used Siemens NX for modeling and Blender to visualize the final designs.</li>
-                    <li>The headlight and tail light cover is going to be manufactured using acrylic vaccum forming.</li>
-                    <li>The housings are going to be 3d printed to due the bespoke nature of the proejct.</li>
-                </ul>
-                </div>
-                <div class="item">
-                    <img src="images/Screenshot 2025-02-06 at 3.01.59 PM.png" alt="Charge port housing design requirements for Cal Poly PROVE electric vehicle">
-                    <h4>Results:</h4>
-                <ul>
-                    <li>I am in the process of prototyping the headlight and tail lightmodule, with an aim to integrate it into the vehicle next year.</li>
-                    <li>After careful consideration, we decided to scrap the tail light bar, instead opting for the two side light elements and a purelty strucutral member running accross the lenght of the vehilce.</li>
-                </ul>
                 </div>
             </section>
         </div>
