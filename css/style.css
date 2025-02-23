@@ -156,6 +156,20 @@ header a:hover {
   line-height: 1.4;
 }
 
+.item li {
+  font-size: 0.9rem;
+  color: #6e6e73;
+  line-height: 1.4;
+  margin: 0px 20px;
+  text-align: left;
+  padding: 5px 10px; /* Adds internal spacing for a better hover effect */
+  border-radius: 8px; /* Rounds corners for a modern look */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover changes */
+  cursor: pointer; /* Indicates interactivity */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+
+}
+
 /* Contact section */
 #contact {
   text-align: center;
@@ -208,6 +222,20 @@ footer {
 
 }
 
+.vertical-slider {
+  background-color:#ffff;
+  gap: 10px;
+  height: 220px;
+  padding-bottom: 0%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;  /* Enable scrolling */
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none; /* Hides scrollbar on Firefox */
+
+}
+
 @media (max-width: 600px) {
   header h1 {
     font-size: clamp(16px, 7vw, 40px);
@@ -225,11 +253,53 @@ footer {
 .carousel::after {
     content: "";
     flex: 0 0 50%; 
-
     
   }
   .item img {
     height: 33vw;
 
   }
+
+  .viewer {
+    height: 33vw !important;
+  }
+}
+
+.viewer {
+  position: relative;  /* So child elements can use absolute positioning */
+  height: 200px; /* Your fixed height */
+  aspect-ratio: 16 / 9; /* Set your desired ratio, e.g., 16:9 */
+  overflow: hidden; 
+}
+
+/* Both images fill the parent and can overlap one another */
+.image {
+  object-fit: cover;
+  position: absolute;
+  top: 50%; /* Move 50% from the left */
+  left: 50%; /* Move 50% from the left */
+  transform: translate(-50%, -50%); /* Offset by half its own size */
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+  min-width: 100%; /* Ensures it also shrinks when the container is smaller */
+  min-height: 100%; /* Ensures it also shrinks when the container is smaller */
+  z-index: 4;
+}
+
+.showing {
+  opacity: 1;
+  z-index: 3;
+  transition: none;
+}
+
+.item li {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.item li:hover:not(.active) {
+  background-color: #9fddff; /* Light gray hover effect */
+}
+
+.item li.active {
+  background-color: #d6d6d65f; /* Keeps selected item "pressed" */
 }
