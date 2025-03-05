@@ -515,3 +515,44 @@ button {
 }
 
 /* #endregion */
+
+/* Floating LinkedIn Icon */
+.linkedin-icon {
+  -webkit-tap-highlight-color: transparent;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #0077b5;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.linkedin-icon a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.linkedin-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: white; /* Applies color to the SVG */
+}
+
+/* Hover effect */
+.linkedin-icon:active {
+  background-color: #00659b;
+}
+
+.hidden {
+  opacity: 0;
+}

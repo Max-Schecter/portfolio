@@ -1,5 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+  
+  function setupScrollListener() {
+    const icon = document.querySelector('.linkedin-icon');
+    if (!icon) return;
+    
+    let lastScrollTop = window.scrollY;
+    const threshold = 50; // Minimum scroll change (in pixels) before updating
+  
+    window.addEventListener('scroll', function() {
+      let scrollTop = window.scrollY;
+      if (Math.abs(scrollTop - lastScrollTop) < threshold) return;
+      
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        icon.classList.add("hidden");;
+      } else {
+        // Scrolling up
+        icon.classList.remove("hidden");;
+      }
+      lastScrollTop = scrollTop;
+    });
+  }
+  
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupScrollListener);
+  } else {
+    setupScrollListener();
+  }
 
   // --- Gallery Item Image Switching ---
   const galleryItems = document.querySelectorAll(".galley-item");
