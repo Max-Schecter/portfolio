@@ -5,43 +5,41 @@
   box-sizing: border-box;
 }
 
-body {
-  padding-top: 290px;  /* Add this to offset the fixed header */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Mimics San Francisco */
-  line-height: 1.6;
-  color: #333;
-  background-color: #f5f5f7;
-  width:100%;
-  z-index: 2000;
-}
-
-/* Header styling */
+/* #region Header */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 310px; /* Full-screen video */
-  background-color: #000000;  /* Choose one color */
+  height: 310px;
+  /* Full-screen video */
+  background-color: #000000;
+  /* Choose one color */
   text-align: center;
   z-index: -1;
   scroll-snap-align: start;
 }
 
 header video {
-  margin-top: 70px; /* Moves video down */
+  margin-top: 70px;
+  /* Moves video down */
   z-index: 1;
-  width: clamp(100%, 90vw, 100%); /* Width scales dynamically */
-  object-fit: contain; /* Ensures the video fills its container without distortion */
+  width: clamp(100%, 90vw, 100%);
+  /* Width scales dynamically */
+  object-fit: contain;
+  /* Ensures the video fills its container without distortion */
 }
 
 header h1 {
   position: absolute;
-  top: 20%; /* Adjust this value as needed */
+  top: 20%;
+  /* Adjust this value as needed */
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2.5rem; /* Adjust as needed */
-  font-weight: 900; /* 'black' corresponds to 900 */
+  font-size: 2.5rem;
+  /* Adjust as needed */
+  font-weight: 900;
+  /* 'black' corresponds to 900 */
   background: linear-gradient(to top left, #5433FF, #20BDFF, #A5FECB);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -53,9 +51,11 @@ header h2 {
   font-size: 1.2rem;
   top: 3%;
   left: 50%;
-  transform: translate(-50%, -20%); /* Centers text perfectly */
+  transform: translate(-50%, -20%);
+  /* Centers text perfectly */
   font-weight: 400;
-  color: #6e6e73; /* Apple's gray text color */
+  color: #6e6e73;
+  /* Apple's gray text color */
   margin-top: 8px;
   z-index: 9999;
 }
@@ -67,7 +67,8 @@ header p {
 }
 
 header a {
-  color: #0071e3; /* Apple's link blue */
+  color: #0071e3;
+  /* Apple's link blue */
   text-decoration: none;
 }
 
@@ -75,14 +76,29 @@ header a:hover {
   text-decoration: underline;
 }
 
-/* Projects section */
+/* #endregion */
+
+/* #region Body */
+
+body {
+  padding-top: 290px;
+  /* Add this to offset the fixed header */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Mimics San Francisco */
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f7;
+  width: 100%;
+  z-index: 2000;
+}
 
 .wrapper {
+  width: 100vw;
   border-radius: 20px 20px 0px 0px;
   position: relative;
   background-color: #f5f5f7;
   padding: 0px 0px;
-  box-shadow: 0 -2px 5px rgba(255, 255, 255, 0.7); /* Soft white glow */
+  box-shadow: 0 -2px 5px rgba(255, 255, 255, 0.7);
   scroll-snap-align: start;
   scroll-snap-stop: always;
   overflow-x: hidden;
@@ -104,17 +120,17 @@ header a:hover {
 
 .project {
   background-color: #fff;
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding: 20px;
-  margin-left: 5%;
-  margin-right: 5%;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px 20px 20px;
+  margin-left: 5vw;
+  margin-right: 5vw;
   margin-bottom: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project:hover {
-  transform: translateY(-1px); /* Lift effect on hover */
+  transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -124,53 +140,210 @@ header a:hover {
   font-weight: 600;
   color: #000;
   margin-bottom: 20px;
-  color: #0071e3; /* Blue for project titles */
+  color: #0071e3;
 }
 
-.item {
-  flex: 0 0;
-  width: max-content;
+.gallery {  
+  --card-width: 385px;
+  --card-gap: 10px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.gallery-scroll-container {
+  display: grid;
+  overflow-x: scroll;
+  scroll-padding-block-end: 48px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.gallery-item-container {
+  --viewport-content: calc((var(--card-width) * 3) + 75px);
+  --gallery-side-padding: round(down, calc((90vw - var(--viewport-content)) / 2), 1px);
+  padding-inline: var(--gallery-side-padding);
+  display: flex;
+  gap: var(--tile-card-gutter);
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--gallery-side-padding);
+  width: fit-content;
+}
+
+/* #region Card */
+.galley-item {
+  display: grid;
+  position: relative;
+  height: 100%;
   background-color: #f5f5f7;
   border-radius: 12px;
+  width: var(--card-width);
+  margin: 0px 6px;
+  list-style: none;
+  scroll-snap-align: start;
   padding: 15px;
-  text-align: center;
-  scroll-snap-align: center;
 }
 
-.item img {
-  height: 200px;
-  border-radius: 8px;
-  object-fit: cover;
+.galley-item p {
+  font-size: 0.9rem;
+  color: #6e6e73;
+  line-height: 1.4;
 }
 
-.item h4 {
+.viewer-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.viewer {
+  width: 100%;
+  position: relative;
+  /* So child elements can use absolute positioning */
+  /* Your fixed height */
+  aspect-ratio: 16 / 9;
+  /* Set your desired ratio, e.g., 16:9 */
+  overflow: hidden;
+}
+
+
+.description-weapper {
+  display: grid;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 100%;
+}
+
+.description-weapper h4 {
   font-size: 1rem;
   font-weight: 500;
   color: #000;
   margin: 15px 0 10px;
+  text-align: center;
 }
 
-.item p {
+.description-weapper li {
+  white-space: normal;
   font-size: 0.9rem;
   color: #6e6e73;
   line-height: 1.4;
-}
-
-.item li {
-  font-size: 0.9rem;
-  color: #6e6e73;
-  line-height: 1.4;
-  margin: 0px 20px;
+  margin: 0px 15px;
   text-align: left;
-  padding: 5px 10px; /* Adds internal spacing for a better hover effect */
-  border-radius: 8px; /* Rounds corners for a modern look */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover changes */
-  cursor: pointer; /* Indicates interactivity */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-
+  padding: 5px 10px;
+  /* Adds internal spacing for a better hover effect */
+  border-radius: 8px;
+  /* Rounds corners for a modern look */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Smooth transition for hover changes */
+  cursor: pointer;
+  /* Indicates interactivity */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Smooth hover effect */
 }
 
-/* Contact section */
+.image {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  border-radius: 5px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+  z-index: 4;
+}
+
+.showing {
+  opacity: 1;
+  z-index: 3;
+  transition: none;
+}
+
+.galley-item li {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.galley-item li.active {
+  background-color: #d6d6d65f;
+  /* Keeps selected item "pressed" */
+}
+
+ul {
+  list-style-type: disc;
+  /* Ensures bullets are shown */
+}
+
+.no-image::marker {
+  color: rgb(217, 217, 217);
+  /* Change bullet color */
+}
+
+.no-image {
+  cursor: default;
+  /* Changes cursor to default (not clickable) */
+  pointer-events: none;
+  /* Prevents hover and click events */
+}
+
+
+/* #endregion */
+
+/* #endregion */
+
+/* #region Misc items */
+
+.galley-item.small {
+  display: grid;
+  position: relative;
+  height: 100%;
+  background-color: #f5f5f7;
+  border-radius: 12px;
+  width: var(--card-width);
+  margin: 0px 5px;
+  list-style: none;
+  scroll-snap-align: start;
+  padding: 15px;
+}
+
+.gallery.small {  
+  --card-width: 210px;
+  --card-gap: 10px;
+}
+
+.galley-item.small {
+  width: var(--card-width);
+}
+
+
+.gallery-item-container.small {
+  --viewport-content: calc((var(--card-width) * 7) + 115px);
+  --gallery-side-padding: round(down, calc((90vw - var(--viewport-content)) / 2), 1px);
+  padding-inline: var(--gallery-side-padding);
+  padding: 0 var(--gallery-side-padding);
+}
+
+.galley-item.small img {
+  width: 100%;
+}
+
+.galley-item.small li {
+  white-space: normal;
+  font-size: 0.9rem;
+  color: #6e6e73;
+  line-height: 1.4;
+  margin: 5px 0px 0px 30px;
+  text-align: left;
+  /* Adds internal spacing for a better hover effect */
+  border-radius: 8px;
+}
+
+/* #endregion */
+
+/* #region Contact section */
 #contact {
   text-align: center;
   background-color: #fff;
@@ -199,62 +372,46 @@ header a:hover {
   text-decoration: underline;
 }
 
-/* Footer */
+/* #endregion */
+
+/* #region Footer */
 footer {
   background-color: #f5f5f7;
   text-align: center;
   padding: 20px;
   color: #6e6e73;
   font-size: 0.8rem;
-  border-top: 1px solid #e5e5ea; /* Light border for separation */
+  border-top: 1px solid #e5e5ea;
+  /* Light border for separation */
 }
 
-.carousel {
-  background-color:#ffff;
-  gap: 10px;
-  padding-bottom: 0%;
-  justify-content: center;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;  /* Enable scrolling */
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Hides scrollbar on Firefox */
+/* #endregion */
 
-}
-
-.vertical-slider {
-  background-color:#ffff;
-  gap: 10px;
-  height: 220px;
-  padding-bottom: 0%;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;  /* Enable scrolling */
-  scroll-snap-type: y mandatory;
-  scrollbar-width: none; /* Hides scrollbar on Firefox */
-
-}
+/* #region Scaling */
 
 @media (max-width: 600px) {
   header h1 {
     font-size: clamp(16px, 7vw, 40px);
     white-space: nowrap;
   }
+
   header h2 {
     font-size: clamp(16px, 3.2vw, 40px);
     white-space: nowrap;
   }
 
   .carousel {
-    scroll-padding: 0 50%; /* Ensures first and last items are centered */
-}
-  .carousel::before,
-.carousel::after {
-    content: "";
-    flex: 0 0 50%; 
-    
+    scroll-padding: 0 50%;
+    /* Ensures first and last items are centered */
   }
+
+  .carousel::before,
+  .carousel::after {
+    content: "";
+    flex: 0 0 50%;
+
+  }
+
   .item img {
     height: 33vw;
 
@@ -263,53 +420,98 @@ footer {
   .viewer {
     height: 33vw !important;
   }
+
+  .gallery {
+    --card-width: 280px;
+    --card-gap: 10px;
+    
+  }
+
 }
 
-.viewer {
-  position: relative;  /* So child elements can use absolute positioning */
-  height: 200px; /* Your fixed height */
-  aspect-ratio: 16 / 9; /* Set your desired ratio, e.g., 16:9 */
-  overflow: hidden; 
+@media (max-width: 600px) {
+  .gallery {
+    --card-width: 65vw;
+  }
+
+  .galley-item {
+    scroll-snap-align: center;
+  }
+  .galley-item.small {
+    scroll-snap-align: center;
+  }
+
+}
+/* #endregion */
+
+/* #region Paddle Nav */
+
+.PaddleNav {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
 }
 
-/* Both images fill the parent and can overlap one another */
-.image {
-  object-fit: cover;
-  position: absolute;
-  top: 50%; /* Move 50% from the left */
-  left: 50%; /* Move 50% from the left */
-  transform: translate(-50%, -50%); /* Offset by half its own size */
-  opacity: 0;
-  transition: opacity .5s ease-in-out;
-  min-width: 100%; /* Ensures it also shrinks when the container is smaller */
-  min-height: 100%; /* Ensures it also shrinks when the container is smaller */
-  z-index: 4;
+.NavGrid {
+  grid-template-columns: fit-content(50%) fit-content(50%);
+  grid-gap: 20px;
+  gap: 20px;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
 }
 
-.showing {
-  opacity: 1;
-  z-index: 3;
-  transition: none;
+button {
+  background-color: none;
+  border: 0;
+  box-sizing: content-box;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: inherit;
+  overflow: visible;
+  vertical-align: inherit;
 }
 
-.item li {
-  transition: background-color 0.15s ease, transform 0.15s ease;
+.NavButton {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  outline: none;
+  margin-top: 15px;
+  padding: 0;
+  border: 0;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color .1s linear,color .1s linear,opacity .1s linear;
+  background: #e8e8ed;
+  color:  rgba(0,0,0,.56);
+  will-change: opacity;
+  }
+
+  .NavButton:active {
+    background:  #dfdfe4 !important;
+    color: rgba(0,0,0,.64) !important;
+  
+  }
+  .NavButton:hover {
+    background: rgba(232, 232, 237, .84);
+    color: rgba(0,0,0,.64);
+  }
+
+  .NavButton:disabled {
+    pointer-events: none;
+    opacity: 0.42;
+    }
+
+.NavSvg{
+  fill: currentColor;
+  pointer-events: none;
+  color: rgba(0,0,0,.56);
 }
 
-.item li.active {
-  background-color: #d6d6d65f; /* Keeps selected item "pressed" */
-}
-
-ul {
-  list-style-type: disc; /* Ensures bullets are shown */
-}
-
-.no-image::marker {
-  color: rgb(217, 217, 217); /* Change bullet color */
-}
-
-.no-image {
-  cursor: default; /* Changes cursor to default (not clickable) */
-  pointer-events: none; /* Prevents hover and click events */
-}
-
+/* #endregion */
