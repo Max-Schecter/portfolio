@@ -88,28 +88,13 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    function updateScrollButtons() {
-      const computedStyle = window.getComputedStyle(galleryParent);
-      const scrollPadding = computedStyle.getPropertyValue("padding-inline");
-      const paddingValue = parseInt(scrollPadding, 10);
-
-      if (paddingValue > 0 || "ontouchstart" in window || navigator.maxTouchPoints > 0) {
-        leftBtn.style.display = "none";
-        rightBtn.style.display = "none";
-        project.style.padding = "20px 20px 20px 20px";
-      } else {
-        leftBtn.style.display = "inline-block";
-        rightBtn.style.display = "inline-block";
-        project.style.padding = "20px 20px 6px 20px";
-      }
-    }
     // --- Update Scroll Buttons Based on Gallery Parent Padding ---
     function updateScrollButtons() {
       const computedStyle = window.getComputedStyle(galleryParent);
       const scrollPadding = computedStyle.getPropertyValue("padding-inline");
       const paddingValue = parseInt(scrollPadding, 10);
 
-      if (paddingValue > 0 || "ontouchstart" in window || navigator.maxTouchPoints > 0) {
+      if (paddingValue > 0) {
         leftBtn.style.display = "none";
         rightBtn.style.display = "none";
         project.style.padding = "20px 20px 20px 20px";
