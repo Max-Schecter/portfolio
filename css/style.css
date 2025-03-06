@@ -417,19 +417,27 @@ footer {
 
   }
 
-  .gallery {
-    --card-width: 280px;
-    --card-gap: 10px;
-  }
   .gallery-item-container {
-    margin: 0px 90px !important;
+    margin: 0px 20px !important;
+  }
+  .project {
+    padding: 20px 0px 20px 0px !important;
+    margin-left: 0vw;
+    margin-right: 0vw;
+    border-radius: 0px;
+
+  }
+
+  .NavGrid {
+    margin-right: 15px !important;
+ 
   }
 }
 
 
 @media (max-width: 600px) {
   .gallery {
-    --card-width: 70vw;
+    --card-width: 85vw;
   }
 
   .galley-item {
@@ -440,6 +448,10 @@ footer {
     scroll-snap-align: center;
   }
 
+  .description-weapper li {
+    font-size: 0.8rem;
+  }
+  
 }
 /* #endregion */
 
