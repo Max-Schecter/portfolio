@@ -387,74 +387,6 @@ footer {
 
 /* #endregion */
 
-/* #region Scaling */
-
-@media (max-width: 600px) {
-  header h1 {
-    font-size: clamp(16px, 7vw, 40px);
-    white-space: nowrap;
-  }
-
-  header h2 {
-    font-size: clamp(16px, 3.2vw, 40px);
-    white-space: nowrap;
-  }
-
-  .carousel {
-    scroll-padding: 0 50%;
-    /* Ensures first and last items are centered */
-  }
-
-  .carousel::before,
-  .carousel::after {
-    content: "";
-    flex: 0 0 50%;
-
-  }
-
-  .item img {
-    height: 33vw;
-
-  }
-
-  .gallery-item-container {
-    margin: 0px 20px !important;
-  }
-  .project {
-    padding: 20px 0px 20px 0px !important;
-    margin-left: 0vw;
-    margin-right: 0vw;
-    border-radius: 0px;
-
-  }
-
-  .NavGrid {
-    margin-right: 15px !important;
- 
-  }
-}
-
-
-@media (max-width: 600px) {
-  .gallery {
-    --card-width: 85vw;
-  }
-
-  .galley-item {
-    scroll-snap-align: center;
-  }
-
-  .galley-item.small {
-    scroll-snap-align: center;
-  }
-
-  .description-weapper li {
-    font-size: 0.8rem;
-  }
-  
-}
-/* #endregion */
-
 /* #region Paddle Nav */
 
 .PaddleNav {
@@ -527,7 +459,8 @@ button {
 
 /* #endregion */
 
-/* Floating LinkedIn Icon */
+/* #region Floating LinkedIn Icon */
+
 .linkedin-icon {
   -webkit-tap-highlight-color: transparent;
   position: fixed;
@@ -567,3 +500,79 @@ button {
 .hidden {
   opacity: 0;
 }
+
+/* #endregion */
+
+/* #region Scaling */
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: clamp(16px, 7vw, 40px);
+    white-space: nowrap;
+  }
+
+  header h2 {
+    font-size: clamp(16px, 3.2vw, 40px);
+    white-space: nowrap;
+  }
+
+  .carousel {
+    scroll-padding: 0 50%;
+    /* Ensures first and last items are centered */
+  }
+
+  .carousel::before,
+  .carousel::after {
+    content: "";
+    flex: 0 0 50%;
+
+  }
+
+  .item img {
+    height: 33vw;
+
+  }
+
+  .gallery-item-container {
+    margin: 0px 20px !important;
+  }
+  .project {
+    padding: 20px 0px 20px 0px !important;
+    margin-left: 3vw;
+    margin-right: 3vw;
+
+  }
+
+  .NavGrid {
+    margin-right: 15px !important;
+ 
+  }
+
+  .linkedin-icon {
+    bottom: 10px;
+    left: 10px;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  .gallery {
+    --card-width: 85vw;
+  }
+
+  .galley-item {
+    scroll-snap-align: center;
+  }
+
+  .galley-item.small {
+    scroll-snap-align: center;
+  }
+
+  .description-weapper li {
+    font-size: 0.8rem;
+  }
+
+  .galley-item {
+    margin: 0px 4px;
+  }
+  
+}
+/* #endregion */
