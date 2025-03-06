@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Max Schecter's Mechanical Engineering Portfolio">
     <title>Max Schecter - Portfolio</title>
+    <link rel="icon" type="image/png" href="images/Untitled 7.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,18 +23,123 @@
     <div class="linkedin-icon">
         <a href="https://www.linkedin.com/in/max-schecter" target="_blank">
             <svg viewBox="0 0 23 24">
-                <path d="M4.98 3.5c0 1.38-1.12 2.5-2.5 2.5S0 4.88 0 3.5 1.12 1 2.5 1s2.5 1.12 2.5 2.5zM0 24V7h5v17H0zm7-17h5v2.5h.07c.69-1.3 2.37-2.67 4.93-2.67 5.26 0 6.23 3.46 6.23 7.96V24h-5v-8.8c0-2.1-.04-4.8-2.92-4.8-2.92 0-3.37 2.28-3.37 4.63V24H7V7z"/>
-            </svg>       
-         </a>
+                <path
+                    d="M4.98 3.5c0 1.38-1.12 2.5-2.5 2.5S0 4.88 0 3.5 1.12 1 2.5 1s2.5 1.12 2.5 2.5zM0 24V7h5v17H0zm7-17h5v2.5h.07c.69-1.3 2.37-2.67 4.93-2.67 5.26 0 6.23 3.46 6.23 7.96V24h-5v-8.8c0-2.1-.04-4.8-2.92-4.8-2.92 0-3.37 2.28-3.37 4.63V24H7V7z" />
+            </svg>
+        </a>
     </div>
 
     <div class="wrapper" id="wrapper"> <!-- Moving Section -->
         <section id="project-section">
             <h2>Projects</h2>
 
+            <div class="project"> <!-- Aeroshell Allignment -->
+                <h3>PROVE - Aeroshell Allignment</h3>
+
+                <div class="gallery">
+                    <div class="gallery-scroll-container">
+                        <ul class="gallery-item-container" id="galleryParent">
+                            <li class="galley-item">
+                                <div class="card-wrapper">
+                                    <div class="viewer-wrapper">
+                                        <div class="viewer">
+                                            <img class="image" src="images/Aeroshell Allignment/Aeroshell Overview.png"
+                                                alt="Preview" />
+                                            <img class="image" src=""
+                                                alt="Preview" />
+                                            <img class="image" src=""
+                                                alt="Preview" />
+                                        </div>
+                                    </div>
+                                    <div class="description-weapper">
+                                        <h4>Design Requirements:</h4>
+                                        <ul id="design-list">
+                                            <li>The vehicle Aeroshell and chassis must be aligned with high precision in order to avoid interference.</li>
+                                            <li  class="no-image">The Aeroshell must be centered on the vehicle's track width.</li>
+                                            <li  class="no-image">The location method cannot use any points on the vehicle chassis, as
+                                                they may be out of tolerence.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="galley-item">
+                                <div class="card-wrapper">
+                                    <div class="viewer-wrapper">
+                                        <div class="viewer">
+                                            <img class="image" src="images/Aeroshell Allignment/Clearence Photo.png"
+                                                alt="Preview" />
+                                            <img class="image" src="images/Aeroshell Allignment/Clearence Photo.png"
+                                                alt="Preview" />
+                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
+                                                alt="Preview" />
+                                        </div>
+                                    </div>
+                                    <div class="description-weapper">
+                                        <h4>Method:</h4>
+                                        <ul id="design-list">
+                                            <li>I began by analyzing the closest point of interference, as that would
+                                                determine the required precision.</li>
+                                            <li  class="no-image">I considered measurment methods like 3d scanners, tape measures, and
+                                                string, weighting the pros and cons of each method based on cost,
+                                                tolerence stackup, and space required.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="galley-item">
+                                <div class="card-wrapper">
+                                    <div class="viewer-wrapper">
+                                        <div class="viewer">
+                                            <img class="image" src="images/Aeroshell Allignment/Laser Photo.png"
+                                                alt="Preview" />
+                                            <img class="image" src="images/Aeroshell Allignment/Aeroshell Exploded.png"
+                                                alt="Preview" />
+                                            <img class="image" src="images/Aeroshell Allignment/Triangulation.png"
+                                                alt="Preview" />
+                                        </div>
+                                    </div>
+                                    <div class="description-weapper">
+                                        <h4>Solution:</h4>
+                                        <ul id="design-list">
+                                            <li>Project the bottom panel mounting holes onto a 2d plane and use
+                                                three laser measurers to triangulate their positions, including the
+                                                track width centerline.</li>
+                                            <li>The bottom panel’s precise placement will serve as the base for building
+                                                the entire aeroshell.</li>
+                                            <li>Since the bottom pannel only exists in 2d space, and there is an extra
+                                                laser measurer, we will avoid instense tolerence stackup.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="PaddleNav">
+                        <ul class="NavGrid">
+                            <li>
+                                <button class="NavButton leftBtn">
+                                    <svg class="NavSvg" viewBox="0 0 36 36">
+                                        <path
+                                            d="M20 25c-.384 0-.768-.146-1.06-.44l-5.5-5.5a1.5 1.5 0 0 1 0-2.12l5.5-5.5a1.5 1.5 0 1 1 2.12 2.12L16.622 18l4.44 4.44A1.5 1.5 0 0 1 20 25z">
+                                    </svg>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="NavButton rightBtn">
+                                    <svg class="NavSvg" viewBox="0 0 36 36">
+                                        <path
+                                            d="M22.56 16.938l-5.508-5.5a1.493 1.493 0 0 0-2.116.003 1.502 1.502 0 0 0 .004 2.121L19.384 18l-4.444 4.438A1.502 1.502 0 0 0 15.996 25c.382 0 .764-.145 1.056-.438l5.508-5.5a1.502 1.502 0 0 0 0-2.125z">
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <div class="project"> <!-- Charging Port -->
                 <h3>PROVE - Charging Port</h3>
-
                 <div class="gallery">
                     <div class="gallery-scroll-container">
                         <ul class="gallery-item-container" id="galleryParent">
@@ -49,7 +155,7 @@
                                     <div class="description-weapper">
                                         <h4>Design Requirements:</h4>
                                         <ul id="design-list">
-                                            <li> Needed to seamlessly mate with the vehicle’s organic geometry.</li>
+                                            <li> Must seamlessly mate with the vehicle's organic geometry.</li>
                                             <li class="no-image"> Must house a J1772 charging plug.</li>
                                             <li class="no-image"> Must be easy to manufacture.</li>
                                         </ul>
@@ -68,20 +174,14 @@
                                         </div>
                                     </div>
                                     <div class="description-weapper">
-                                        <h4>Design Requirements:</h4>
+                                        <h4>Method:</h4>
                                         <ul id="design-list">
-                                            <li>I selected the back left of the vehicle due to access, proximity to
-                                                high-voltage
-                                                components, and available space.</li>
-                                            <li>After looking at pre exisitng designs, I chose a hinged design and
-                                                decided to
-                                                make a
-                                                bespoke part instead of buying becasue of the unique vehicle geometry.
-                                            </li>
-                                            <li>I then modeled the port in Siemens NX, designing the part with the
-                                                intention to
-                                                3d print
-                                                it.</li>
+                                            <li>I chose the rear-left location for access, proximity to high-voltage
+                                                parts, and available space.</li>
+                                            <li>I reviewed existing designs, opting for a custom hinged design due to
+                                                complex vehicle geometry.</li>
+                                            <li>I modeled the part in Siemens NX, designing the part for effecient 3d
+                                                printing.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -97,15 +197,13 @@
                                         </div>
                                     </div>
                                     <div class="description-weapper">
-                                        <h4>Design Requirements:</h4>
+                                        <h4>Results:</h4>
                                         <ul id="design-list">
-                                            <li>I 3d printed a number of prototypes and confirmed manufacturability and
-                                                functionality.
+                                            <li>I 3D printed prototypes to confirm manufacturability and functionality.
+                                                The final part will be printed in PETG.
                                             </li>
                                             <li class="no-image">I'm waiting on the completion of the vehicle Aeroshell
-                                                to
-                                                integrate it
-                                                and perform final tests.</li>
+                                                to integrate it and perform final tests.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -157,12 +255,10 @@
                                     <div class="description-weapper">
                                         <h4>Design Requirements:</h4>
                                         <ul id="design-list">
-                                            <li>Must go with the asthetc design of the vehicle.</li>
-                                            <li>The head light design must be able to house a five inch deep projector
-                                                headlight and fit
+                                            <li>Must match the asthetic design of the vehicle.</li>
+                                            <li>Must be able to house a five inch deep projector headlight and fit
                                                 within tight geometry constraints.</li>
-                                            <li>The tail light bar must also act as a structural member to join two
-                                                pannels.</li>
+                                            <li>The tail light bar must also act as a structural member.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -180,140 +276,32 @@
                                         </div>
                                     </div>
                                     <div class="description-weapper">
-                                        <h4>Design Requirements:</h4>
-                                        <ul id="design-list">
-                                            <li>I began by sketching out initial headlights design on the profile of the
-                                                vehicle.</li>
-                                            <li>I then modeled the .</li>
-                                            <li>The tail light bar must act both as a structural member in addition to
-                                                its visual
-                                                function.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="galley-item">
-                                <div class="card-wrapper">
-                                    <div class="viewer-wrapper">
-                                        <div class="viewer">
-                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
-                                                alt="Preview" />
-                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
-                                                alt="Preview" />
-                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
-                                                alt="Preview" />
-                                        </div>
-                                    </div>
-                                    <div class="description-weapper">
-                                        <h4>Design Requirements:</h4>
-                                        <ul id="design-list">
-                                            <li>Need to interface with the orgainc geometry of the vehicle.</li>
-                                            <li>The headlight module must be able to house a five inch deep projector
-                                                headlight and fit
-                                                within tight geometry constraints.</li>
-                                            <li>The tail light bar must act both as a structural member in addition to
-                                                its visual
-                                                function.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                    <div class="PaddleNav">
-                        <ul class="NavGrid">
-                            <li>
-                                <button class="NavButton leftBtn">
-                                    <svg class="NavSvg" viewBox="0 0 36 36">
-                                        <path
-                                            d="M20 25c-.384 0-.768-.146-1.06-.44l-5.5-5.5a1.5 1.5 0 0 1 0-2.12l5.5-5.5a1.5 1.5 0 1 1 2.12 2.12L16.622 18l4.44 4.44A1.5 1.5 0 0 1 20 25z">
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button class="NavButton rightBtn">
-                                    <svg class="NavSvg" viewBox="0 0 36 36">
-                                        <path
-                                            d="M22.56 16.938l-5.508-5.5a1.493 1.493 0 0 0-2.116.003 1.502 1.502 0 0 0 .004 2.121L19.384 18l-4.444 4.438A1.502 1.502 0 0 0 15.996 25c.382 0 .764-.145 1.056-.438l5.508-5.5a1.502 1.502 0 0 0 0-2.125z">
-                                    </svg>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project"> <!-- Aeroshell Allignment -->
-                <h3>PROVE - Aeroshell Allignment</h3>
-
-                <div class="gallery">
-                    <div class="gallery-scroll-container">
-                        <ul class="gallery-item-container" id="galleryParent">
-                            <li class="galley-item">
-                                <div class="card-wrapper">
-                                    <div class="viewer-wrapper">
-                                        <div class="viewer">
-                                            <img class="image" src="images/Aeroshell Allignment/Aeroshell.png"
-                                                alt="Preview" />
-                                            <img class="image" src="images/Headlights and Tail Lights/Interference.png"
-                                                alt="Preview" />
-                                            <img class="image" src="images/Headlights and Tail Lights/Rear.png"
-                                                alt="Preview" />
-                                        </div>
-                                    </div>
-                                    <div class="description-weapper">
-                                        <h4>Design Requirements:</h4>
-                                        <ul id="design-list">
-                                            <li>I began by sketching out initial headlights design on the profile of the
-                                                vehicle.</li>
-                                            <li>I then modeled the .</li>
-                                            <li>The tail light bar must act both as a structural member in addition to
-                                                its visual
-                                                function.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="galley-item">
-                                <div class="card-wrapper">
-                                    <div class="viewer-wrapper">
-                                        <div class="viewer">
-                                            <img class="image" src="images/Aeroshell Allignment/Aeroshell Exploded.png"
-                                                alt="Preview" />
-                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
-                                                alt="Preview" />
-                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
-                                                alt="Preview" />
-                                        </div>
-                                    </div>
-                                    <div class="description-weapper">
-                                        <h4>Results:</h4>
-                                        <ul id="design-list">
-                                            <li>I began by sketching out initial headlights design on the profile of the
-                                                vehicle.</li>
-                                            <li>I then modeled the .</li>
-                                            <li>The tail light bar must act both as a structural member in addition to
-                                                its visual
-                                                function.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="galley-item">
-                                <div class="card-wrapper">
-                                    <div class="viewer-wrapper">
-                                        <div class="viewer">
-                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
-                                                alt="Preview" />
-                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
-                                                alt="Preview" />
-                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
-                                                alt="Preview" />
-                                        </div>
-                                    </div>
-                                    <div class="description-weapper">
                                         <h4>Method:</h4>
+                                        <ul id="design-list">
+                                            <li>I began by sketching out initial headlight designs on the profile of the
+                                                vehicle.</li>
+                                            <li>I then modeled the headlight in .</li>
+                                            <li>The tail light bar must act both as a structural member in addition to
+                                                its visual
+                                                function.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="galley-item">
+                                <div class="card-wrapper">
+                                    <div class="viewer-wrapper">
+                                        <div class="viewer">
+                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
+                                                alt="Preview" />
+                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
+                                                alt="Preview" />
+                                            <img class="image" src="images/Screenshot 2025-02-06 at 3.01.11 PM.png"
+                                                alt="Preview" />
+                                        </div>
+                                    </div>
+                                    <div class="description-weapper">
+                                        <h4>Design Requirements:</h4>
                                         <ul id="design-list">
                                             <li>Need to interface with the orgainc geometry of the vehicle.</li>
                                             <li>The headlight module must be able to house a five inch deep projector
@@ -446,9 +434,9 @@
                         </ul>
                     </div>
                 </div>
-
-                </section>
             </div>
+        </section>
+
 
         </section>
 
