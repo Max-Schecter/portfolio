@@ -144,7 +144,7 @@ body {
 }
 
 .gallery {  
-  --card-width: 385px;
+  --card-width: 405px;
   --card-gap: 10px;
   margin: 0;
   position: relative;
@@ -229,7 +229,7 @@ body {
   font-size: 0.9rem;
   color: #6e6e73;
   line-height: 1.4;
-  margin: 0px 15px;
+  margin: 0px 2px 0px 15px;
   text-align: left;
   padding: 5px 10px;
   /* Adds internal spacing for a better hover effect */
@@ -417,26 +417,25 @@ footer {
 
   }
 
-  .viewer {
-    height: 33vw !important;
-  }
-
   .gallery {
     --card-width: 280px;
     --card-gap: 10px;
-    
   }
-
+  .gallery-item-container {
+    margin: 0px 90px !important;
+  }
 }
+
 
 @media (max-width: 600px) {
   .gallery {
-    --card-width: 65vw;
+    --card-width: 70vw;
   }
 
   .galley-item {
     scroll-snap-align: center;
   }
+
   .galley-item.small {
     scroll-snap-align: center;
   }
