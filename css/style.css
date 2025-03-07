@@ -555,11 +555,7 @@ button {
   }
 
   .gallery {
-    --card-width: 85vw;
-  }
-
-  .galley-item {
-    scroll-snap-align: center;
+    --card-width:  min(400px, 85vw);
   }
 
   .galley-item.small {
@@ -571,6 +567,7 @@ button {
   }
 
   .galley-item {
+    scroll-snap-align: center;
     margin: 0px 4px;
   }
   
